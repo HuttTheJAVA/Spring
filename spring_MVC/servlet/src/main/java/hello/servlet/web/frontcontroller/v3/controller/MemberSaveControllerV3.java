@@ -11,10 +11,10 @@ public class MemberSaveControllerV3 implements ControllerV3 {
     private MemberRepository memberRepository = MemberRepository.getInstance();
     @Override
     public ModelView process(Map<String, String> paramMap) {
-        String username = paramMap.get("username");
+        String name = paramMap.get("username");
         int age = Integer.parseInt(paramMap.get("age"));
 
-        Member member = new Member(username,age);
+        Member member = new Member(name,age);
         memberRepository.save(member);
 
         ModelView mv = new ModelView("save-result");
