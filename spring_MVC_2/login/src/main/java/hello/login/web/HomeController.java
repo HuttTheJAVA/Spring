@@ -42,7 +42,7 @@ public class HomeController {
     }
 
 //    @GetMapping("/")
-    public String homeLoginV2(@CookieValue(name = "memberId",required = false) Long memberId, Model model, HttpServletRequest request){
+    public String homeLoginV2(Model model, HttpServletRequest request){
 
         Member member = (Member)sessionManager.getSession(request);
 
@@ -55,7 +55,7 @@ public class HomeController {
     }
 
 //    @GetMapping("/")
-    public String homeLoginV3(@CookieValue(name = "memberId",required = false) Long memberId, Model model, HttpServletRequest request){
+    public String homeLoginV3(Model model, HttpServletRequest request){
 
         HttpSession session = request.getSession();
         if(session == null){
