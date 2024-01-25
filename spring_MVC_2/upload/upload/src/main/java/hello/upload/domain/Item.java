@@ -8,6 +8,6 @@ import java.util.List;
 public class Item {
     private Long id;
     private String itemName;
-    private UploadFile attachfile;
+    private UploadFile attachFile;
     private List<UploadFile> imageFiles;
 }
