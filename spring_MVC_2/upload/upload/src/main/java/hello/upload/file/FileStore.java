@@ -15,7 +15,7 @@ import java.util.UUID;
 public class FileStore {
     @Value("${file.dir}")
     private String fileDir;
-    public String extractExt(String filename){
+    public String extractExt(String filename){  
         int index = filename.lastIndexOf(".");
         return filename.substring(index+1);
     }
