@@ -13,9 +13,9 @@ public class MemberServiceV1 {
     public void accountTransfer(String fromId,String toId,int money) throws SQLException {
         Member fromMember = memberRepositoryV1.findById(fromId);
         Member toMember = memberRepositoryV1.findById(toId);
-        memberRepositoryV1.update(fromId,fromMember.getMoney()-2000);
+        memberRepositoryV1.update(fromId,fromMember.getMoney()-money);
         validation(toMember);
-        memberRepositoryV1.update(toId,toMember.getMoney()+2000);
+        memberRepositoryV1.update(toId,toMember.getMoney()+money);
 
     }
     private void validation(Member member){

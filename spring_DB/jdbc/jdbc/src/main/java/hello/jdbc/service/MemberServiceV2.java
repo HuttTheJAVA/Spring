@@ -19,7 +19,7 @@ public class MemberServiceV2 {
         Connection con = dataSource.getConnection();
         try {
             con.setAutoCommit(false);
-            bizLogic(con,fromId, toId);
+            bizLogic(con,fromId, toId,money);
             con.commit();
         }catch (Exception e){
             con.rollback();
@@ -41,12 +41,12 @@ public class MemberServiceV2 {
         }
     }
 
-    private void bizLogic(Connection con,String fromId, String toId) throws SQLException {
+    private void bizLogic(Connection con,String fromId, String toId,int money) throws SQLException {
         Member fromMember = memberRepository.findById(con,fromId);
         Member toMember = memberRepository.findById(con,toId);
-        memberRepository.update(con,fromId, fromMember.getMoney() - 2000);
+        memberRepository.update(con,fromId, fromMember.getMoney() - money);
         validation(toMember);
-        memberRepository.update(con,toId, toMember.getMoney() + 2000);
+        memberRepository.update(con,toId, toMember.getMoney() + money);
     }
 
     private void validation(Member member){
